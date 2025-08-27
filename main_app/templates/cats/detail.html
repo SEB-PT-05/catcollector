@@ -2,11 +2,9 @@
 
 {% block content %}
 
-  <h1>Cat List</h1>
+  <h1>Cat Details</h1>
   
-  {% for cat in cats %}
     <div class="card">
-      <a href="{% url 'detail' cat.id %}">
         <div class="card-content">
           <div class="flex-container">
               <div>
@@ -27,8 +25,6 @@
               </div>
         </div>
         </div>
-      </a>
   </div>
-  {% endfor %}
 
 {% endblock %}

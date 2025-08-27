@@ -12,3 +12,8 @@ body {
     padding-top: 0;
     text-align: right;
   }
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
