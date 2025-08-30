@@ -32,4 +32,47 @@
         </div>
   </div>
 
+  <div>
+
+    <div>
+      <form action="{% url 'add_feeding' cat.id %}" method="post">
+        {% csrf_token %}
+        {{ feeding_form.as_p }}
+        <input type="submit" class="btn" value="Add Feeding">
+      </form>
+    <div>
+
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Meal</th>
+          </tr>
+      </thead>
+
+      <tbody>
+        {% for feeding in cat.feeding_set.all %}
+          <tr>
+            <td>{{feeding.date}}</td>
+            <td>{{feeding.get_meal_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+
+<script>
+  var dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+  {/* // add additional JS to initialize select below */}
+  let selectEl = document.getElementById('id_meal');
+  M.FormSelect.init(selectEl);
+</script>
+
 {% endblock %}
